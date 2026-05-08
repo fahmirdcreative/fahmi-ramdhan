@@ -338,6 +338,7 @@
     transition: background 0.2s;
     position: relative;
     overflow: hidden;
+    flex-wrap: wrap;
   }
 
   .project:last-child { border-bottom: none; }
@@ -398,14 +399,10 @@
     white-space: nowrap;
   }
 
-  .project {
-    flex-wrap: wrap;
-  }
-
   .project-images {
     flex: 0 0 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 6px;
     margin-top: 1rem;
     padding-top: 1.5rem;
@@ -414,7 +411,7 @@
 
   .project-images img {
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 3/2;
     object-fit: cover;
     display: block;
     filter: grayscale(15%);
@@ -426,9 +423,22 @@
     transform: scale(1.02);
   }
 
+  .project-images.two-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-images.single {
+    grid-template-columns: 1fr;
+  }
+
+  .project-images.single img {
+    aspect-ratio: 16/9;
+    max-height: 480px;
+  }
+
   .img-placeholder {
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 3/2;
     background: var(--lightgray);
     display: flex;
     align-items: center;
@@ -560,6 +570,8 @@
     #work { padding: 5rem 1.5rem; }
     .project { grid-template-columns: 60px 1fr; padding: 1.5rem; }
     .project-tags { display: none; }
+    .project-images { grid-template-columns: 1fr 1fr; }
+    .project-images.single { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
     .service { border-right: none; border-bottom: 1px solid var(--lightgray); }
     .service:last-child { border-bottom: none; }
@@ -654,6 +666,7 @@
       <div class="project-images">
         <img src="product1.webp" alt="Product shot 1">
         <img src="product2.webp" alt="Product shot 2">
+        <img src="product3.webp" alt="Product shot 3">
       </div>
     </div>
 
@@ -671,6 +684,7 @@
       <div class="project-images">
         <img src="apparel1.webp" alt="Apparel shot 1">
         <img src="apparel2.webp" alt="Apparel shot 2">
+        <img src="apparel3.webp" alt="Apparel shot 3">
       </div>
     </div>
 
